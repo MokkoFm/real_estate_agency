@@ -14,21 +14,28 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='owner',
             name='flat',
-            field=models.ManyToManyField(db_index=True, related_name='flats_by_owner', to='property.Flat', verbose_name='Квартиры в собственности'),
+            field=models.ManyToManyField(
+                db_index=True, related_name='flats_by_owner',
+                to='property.Flat',
+                verbose_name='Квартиры в собственности'),
         ),
         migrations.AlterField(
             model_name='owner',
             name='name',
-            field=models.CharField(db_index=True, max_length=200, verbose_name='ФИО владельца'),
+            field=models.CharField(db_index=True, max_length=200,
+                                   verbose_name='ФИО владельца'),
         ),
         migrations.AlterField(
             model_name='owner',
             name='phone_pure',
-            field=phonenumber_field.modelfields.PhoneNumberField(blank=True, db_index=True, max_length=128, null=True, region=None, verbose_name='Нормализованный номер владельца'),
+            field=phonenumber_field.modelfields.PhoneNumberField(
+                blank=True, db_index=True, max_length=128, null=True,
+                region=None, verbose_name='Нормализованный номер владельца'),
         ),
         migrations.AlterField(
             model_name='owner',
             name='phonenumber',
-            field=models.CharField(blank=True, db_index=True, max_length=20, null=True, verbose_name='Номер владельца'),
+            field=models.CharField(blank=True, db_index=True, max_length=20,
+                                   null=True, verbose_name='Номер владельца'),
         ),
     ]

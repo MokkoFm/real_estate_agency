@@ -13,6 +13,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='complaint',
             name='text',
-            field=models.TextField(default='Текст жалобы', max_length=500, verbose_name='Текст жалобы'),
+            field=models.TextField(default='Текст жалобы', max_length=500,
+                                   verbose_name='Текст жалобы'),
         ),
     ]

@@ -9,7 +9,8 @@ def normalize_phone_number(apps, schema_editor):
     for flat in Flat.objects.all():
         number = phonenumbers.parse(flat.owners_phonenumber, "RU")
         if phonenumbers.is_valid_number(number):
-            flat.owner_phone_pure = phonenumbers.format_number(number, phonenumbers.PhoneNumberFormat.E164)
+            flat.owner_phone_pure = phonenumbers.format_number(
+                number, phonenumbers.PhoneNumberFormat.E164)
             flat.save()
         else:
             flat.owner_phone_pure = None

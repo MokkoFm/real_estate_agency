@@ -15,16 +15,28 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='flat',
             name='liked_by',
-            field=models.ManyToManyField(blank=True, related_name='liked_flats', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(
+                blank=True, related_name='liked_flats',
+                to=settings.AUTH_USER_MODEL),
         ),
         migrations.CreateModel(
             name='Owner',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200, verbose_name='ФИО владельца')),
-                ('owners_phonenumber', models.CharField(blank=True, max_length=20, null=True, verbose_name='Номер владельца')),
-                ('owner_phone_pure', phonenumber_field.modelfields.PhoneNumberField(blank=True, max_length=128, null=True, region=None, verbose_name='Нормализованный номер владельца')),
-                ('flat', models.ManyToManyField(related_name='flats_by_owner', to='property.Flat', verbose_name='Квартиры в собственности')),
+                ('id', models.AutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
+                ('name', models.CharField(
+                    max_length=200, verbose_name='ФИО владельца')),
+                ('owners_phonenumber', models.CharField(
+                    blank=True, max_length=20, null=True,
+                    verbose_name='Номер владельца')),
+                ('owner_phone_pure',
+                 phonenumber_field.modelfields.PhoneNumberField(
+                     blank=True, max_length=128, null=True, region=None,
+                     verbose_name='Нормализованный номер владельца')),
+                ('flat', models.ManyToManyField(
+                    related_name='flats_by_owner', to='property.Flat',
+                    verbose_name='Квартиры в собственности')),
             ],
         ),
     ]
